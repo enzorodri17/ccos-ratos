@@ -24,17 +24,27 @@ def _resolve_op(ref):
     return None
 
 
+_PLACEHOLDER = "cole_sua_chave_aqui"
+
+
+def _read_env_key(path):
+    """Le SCRAPECREATORS_API_KEY de um arquivo .env (ou None se nao achar)."""
+    if not os.path.exists(path):
+        return None
+    for line in open(path):
+        line = line.strip()
+        if line.startswith("SCRAPECREATORS_API_KEY="):
+            return line.split("=", 1)[1].strip().strip('"').strip("'") or None
+    return None
+
+
 def load_key():
     """Ordem: env var -> .env da skill. Aceita valor cru ou referencia op://."""
     val = os.environ.get("SCRAPECREATORS_API_KEY")
     if not val:
-        env_path = os.path.join(_SKILL_DIR, ".env")
-        if os.path.exists(env_path):
-            for line in open(env_path):
-                line = line.strip()
-                if line.startswith("SCRAPECREATORS_API_KEY="):
-                    val = line.split("=", 1)[1].strip().strip('"').strip("'")
-                    break
+        val = _read_env_key(os.path.join(_SKILL_DIR, ".env"))
+    if val == _PLACEHOLDER:  # placeholder nao conta como chave configurada
+        val = None
     if val and val.startswith("op://"):
         resolved = _resolve_op(val)
         if not resolved:
@@ -42,8 +52,14 @@ def load_key():
                      "Configura a chave crua no .env ou instala/loga o `op`.")
         val = resolved
     if not val:
-        sys.exit("ERRO: SCRAPECREATORS_API_KEY nao configurada. Roda o setup primeiro "
-                 "(scripts/setup.py) ou cria o .env a partir do .env.example.")
+        # erro guiado: pega o engano comum de colar a chave no .env.example
+        example_val = _read_env_key(os.path.join(_SKILL_DIR, ".env.example"))
+        if example_val and example_val != _PLACEHOLDER:
+            sys.exit("ERRO: a chave esta no .env.example (arquivo de exemplo), mas a skill le do .env. "
+                     "Mova a linha SCRAPECREATORS_API_KEY=... pro arquivo .env, "
+                     "ou rode: python3 scripts/setup.py <SUA_CHAVE>")
+        sys.exit("ERRO: SCRAPECREATORS_API_KEY nao configurada. Cola a chave no arquivo .env "
+                 "ou roda: python3 scripts/setup.py <SUA_CHAVE>")
     return val
 
 
