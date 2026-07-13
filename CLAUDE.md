@@ -1,14 +1,56 @@
-# Claude Code OS — Kit Ratos de IA
+# Casa Ancestral — Claude Code OS
 
-Este repositório é o kit de boas-vindas do curso Claude Code OS.
+## O que é esse workspace
 
-Se você acabou de clonar esse repositório:
-1. Rode `/setup` pra configurar o sistema pro seu negócio (uns 5 minutos)
-2. Depois rode `/mapear` pra criar skills personalizadas pro que você faz no dia a dia
+Workspace principal da Casa Ancestral — marca de alimentos ancestrais em fase de validação de mercado. Aqui ficam os arquivos de produto, marca, conteúdo, feiras e estratégia de crescimento.
+
+**Estrutura de pastas:**
+- `produtos/` — desenvolvimento e documentação dos produtos (beef tallow, farofa, futuros)
+- `feiras/` — planejamento, resultados e aprendizados das feiras
+- `conteudo/` — carrosseis, rótulos e materiais de comunicação
+- `regularizacao/` — documentos e checklist de regularização sanitária e fiscal
+- `financeiro/` — controle de custos, receitas e investimentos
+- `marca/` — identidade visual, design guide, logo
+- `dados/` — arquivos de referência, imagens, insumos
+- `templates/skills/` — templates de skills prontos pra personalizar com /mapear
+- `templates/ferramentas/catalogo.md` — APIs e ferramentas disponíveis pra usar em skills
+
+## Sobre o negócio
+
+Casa Ancestral é uma marca de alimentos de origem animal com apelo cultural, estético e nutricional. Foco em produtos como beef tallow (sebo bovino), farofa de torresmos e derivados — posicionados como alternativa ancestral à alimentação industrializada.
+
+## O que mais fazemos aqui
+
+- Desenvolvimento e refinamento de produtos (tallow, farofa, pemmican, jerky)
+- Criação de identidade visual e rótulos
+- Planejamento e operação de vendas em feiras
+- Estratégia de expansão para empórios e escala
+- Estruturação de regularização sanitária e fiscal
+
+## Clientes e contexto
+
+Consumidor final direto — feiras livres, empórios e futuramente supermercados. Foco atual em validação presencial (feira), entendendo aceitação real de sabor, preço, embalagem e discurso.
+
+## Equipe
+
+Enzo (Enzo Costa Rodrigues Guimarães), Igor e Jota — três fundadores, operação enxuta.
+
+## Tom de voz
+
+Direto, sem formalidade excessiva, estilo de conversa próxima. Com profundidade conceitual quando o tema pede — especialmente em marca, filosofia alimentar e estratégia. Sem enrolação, sem genericidade, sem excesso de entusiasmo artificial.
+
+**O que evitar:** respostas confusas, genéricas ou fora do ponto. Sem travessão estilístico, sem frases de efeito vazias, sem bullet points desnecessários.
+
+## Ferramentas conectadas
+
+- Canva — design e visuais
+- Figma — UI/UX
+- tabela.app — tabela nutricional
+- Lovable / Claude Code / Antigravity — desenvolvimento de site
+- Nano Banana — geração de design
+- Canva MCP — conector instalado, Claude acessa designs direto
 
 ---
-
-<!-- Este arquivo será atualizado pelo /setup com o contexto do seu negócio. -->
 
 ## Contexto do negócio
 
@@ -67,7 +109,7 @@ Ao terminar uma tarefa que mudou algo relevante no projeto (novo cliente, nova s
 
 Se sim, identificar o que precisa atualizar:
 
-- **Novo cliente, serviço, ferramenta, equipe** → `_contexto/empresa.md`
+- **Novo produto, serviço, ferramenta, equipe** → `_contexto/empresa.md`
 - **Mudança de prioridade ou foco** → `_contexto/estrategia.md`
 - **Correção de tom ou estilo** → `_contexto/preferencias.md`
 - **Nova pasta, regra de organização, skill criada** → `CLAUDE.md`
@@ -76,7 +118,7 @@ Se sim, identificar o que precisa atualizar:
 Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo inteiro, só adicionar ou editar a linha relevante.
 
 **Quando NÃO perguntar:**
-- Tarefas pontuais que não mudam o contexto (ex: escrever um email, criar um post avulso)
+- Tarefas pontuais que não mudam o contexto (ex: escrever um post, calcular um custo avulso)
 - Perguntas simples ou conversas sem ação
 - Mudanças que já foram salvas pelo bloco "Aprender com correções"
 
